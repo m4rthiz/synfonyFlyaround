@@ -56,6 +56,12 @@ class PlaneModel
      */
     private $isAvailable;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="plane")
+     */
+    private $planes;
+
 
     /**
      * Get id
@@ -187,4 +193,3 @@ class PlaneModel
         return $this->isAvailable;
     }
 }
-

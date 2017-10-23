@@ -77,6 +77,19 @@ class Terrain
      */
     private $country;
 
+    /**
+     *
+     *@ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="departure")
+     */
+    private $departures;
+
+    /**
+     *
+     *@ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="arrival")
+     */
+    private $arrivals;
+
+
 
     /**
      * Get id
@@ -279,5 +292,10 @@ class Terrain
     {
         return $this->country;
     }
-}
 
+/*config perso*/
+    public function __toString()
+    {
+        return $this->icao . '-' . $this->name .' ' . $this->zipcode;
+    }
+}
