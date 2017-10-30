@@ -340,4 +340,9 @@ class Flight
     {
         return $this->wasDone;
     }
+
+    public function __toString()
+    {
+        return $this->plane . '-' . $this->id ;
+    }
 }

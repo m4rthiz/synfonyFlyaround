@@ -1,3 +1,8 @@
 wcs_coav_homepage:
     path:     /
     defaults: { _controller: WCSCoavBundle:Default:index }
+
+wcs_coav_listing:
+  resource: "@WCSCoavBundle/Controller/ListingController.php"
+  type: annotation
+

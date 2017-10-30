@@ -44,6 +44,7 @@ class ReservationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //dump($reservation);exit;
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
             $em->flush();

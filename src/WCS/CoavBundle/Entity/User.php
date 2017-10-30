@@ -105,7 +105,7 @@ class User
     private $isActive;
 
      /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
+     * @var string
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservations;
@@ -503,4 +503,10 @@ class User
     {
         $this->reviews->removeElement($review);
     }
+
+    public function __toString()
+    {
+        return $this->userName . '-' . $this->role ;
+    }
+
 }

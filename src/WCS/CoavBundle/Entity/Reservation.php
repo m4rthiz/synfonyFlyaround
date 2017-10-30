@@ -3,6 +3,7 @@
 namespace WCS\CoavBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Reservation
@@ -36,15 +37,14 @@ class Reservation
     private $publicationDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="reservations")
+     * @var integer
      * @ORM\JoinColumn(nullable=false)
      */
-    private $passengers;
+    private $passenger;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="flight", type="string", length=32)
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $flight;
 
@@ -117,13 +117,13 @@ class Reservation
     /**
      * Set passenger
      *
-     * @param string $passenger
+     * @param string $passengers
      *
      * @return Reservation
      */
-    public function setPassenger($passengers)
+    public function setPassenger($passenger)
     {
-        $this->passengers = $passengers;
+        $this->passenger = $passenger;
 
         return $this;
     }
@@ -135,7 +135,7 @@ class Reservation
      */
     public function getPassenger()
     {
-        return $this->passengers;
+        return $this->passenger;
     }
 
     /**
@@ -226,4 +226,10 @@ class Reservation
     {
         return $this->passengers;
     }
+
+    public function __toString()
+    {
+        return $this->id . '-' . $this->flight ;
+    }
+
 }
