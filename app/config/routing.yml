@@ -18,6 +18,10 @@ wcs_coav:
     resource: "@WCSCoavBundle/Resources/config/routing.yml"
     prefix:   /
 
+wcs_review:
+    resource: "@WCSCoavBundle/Controller/ReviewController.php"
+    type: annotation
+
 #app:
     #resource: '@AppBundle/Controller/'
     #type: annotation

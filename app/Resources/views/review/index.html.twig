@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>List</h1>
+    <table>
+        <tbody>
+        {% for review in reviews %}
+        <tr>
+            <th>n° review (id)</th>
+            <td>{{ review.id }}</td>
+        </tr>
+        <tr>
+            <th>text</th>
+            <td>{{ review.text }}</td>
+        </tr>
+        <tr>
+            <th>User Rated</th>
+            <td>{{ review.UserRated }}</td>
+        </tr>
+        <tr>
+            <th>Review Authors</th>
+            <td>{{ review.reviewAuthors }}</td>
+        </tr>
+        <tr>
+            <th>date</th>
+            <td>{{ review.publicationDate }}</td>
+        </tr>
+        <tr>
+            <th>note</th>
+            <td>{{ review.note }}</td>
+        </tr>
+{% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
