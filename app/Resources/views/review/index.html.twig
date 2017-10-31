@@ -4,35 +4,39 @@
     <h1>List</h1>
     <table>
         <tbody>
-        {% for review in reviews %}
         <tr>
             <th>n° review (id)</th>
+            <th>text</th>
+            <th>User Rated</th>
+            <th>Review Authors</th>
+            <th>date</th>
+            <th>note</th>
+        </tr>
+
+        {% for review in reviews %}
+        <tr>
             <td>{{ review.id }}</td>
         </tr>
         <tr>
-            <th>text</th>
             <td>{{ review.text }}</td>
         </tr>
         <tr>
-            <th>User Rated</th>
             <td>{{ review.UserRated }}</td>
         </tr>
         <tr>
-            <th>Review Authors</th>
-            <td>{{ review.reviewAuthors }}</td>
+            td>{{ review.reviewAuthors }}</td>
         </tr>
         <tr>
-            <th>date</th>
             <td>{{ review.publicationDate }}</td>
         </tr>
         <tr>
-            <th>note</th>
             <td>{{ review.note }}</td>
         </tr>
 {% endfor %}
         </tbody>
     </table>
 
+    <a href="{{ path('reservation_new') }}">add review</a>
 
 {% endblock %}
 
